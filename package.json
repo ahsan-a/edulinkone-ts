@@ -1,0 +1,38 @@
+{
+	"name": "edulinkone-ts",
+	"version": "1.0.0",
+	"description": "An edulink-one CLI with typescript",
+	"main": "bin/main.js",
+	"bin": {
+		"edulink": "./bin/main.js"
+	},
+	"scripts": {
+		"test": "npm run build && node .",
+		"build": "tsc -p .",
+		"local": "npm run build && npm i -g && edulink"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ahsan-a/edulinkone-ts.git"
+	},
+	"author": "ahsan-a",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/ahsan-a/edulinkone-ts/issues"
+	},
+	"homepage": "https://github.com/ahsan-a/edulinkone-ts#readme",
+	"dependencies": {
+		"chalk": "^4.1.0",
+		"clear": "^0.1.0",
+		"figlet": "^1.5.0",
+		"node-fetch": "^2.6.1",
+		"path": "^0.12.7",
+		"prompts": "^2.4.1"
+	},
+	"devDependencies": {
+		"@types/node": "^14.14.37",
+		"@types/node-fetch": "^2.5.10",
+		"nodemon": "^2.0.7",
+		"ts-node": "^9.1.1"
+	}
+}
