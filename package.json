@@ -7,9 +7,10 @@
 		"edulink": "./bin/main.js"
 	},
 	"scripts": {
-		"test": "npm run build && node .",
+		"test": "ts-node ./src/main.ts",
 		"build": "tsc -p .",
-		"local": "npm run build && npm i -g && edulink"
+		"local": "npm run build && npm i -g && edulink",
+		"serve": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec ts-node ./src/main.ts"
 	},
 	"repository": {
 		"type": "git",
@@ -23,15 +24,17 @@
 	"homepage": "https://github.com/ahsan-a/edulinkone-ts#readme",
 	"dependencies": {
 		"chalk": "^4.1.0",
-		"clear": "^0.1.0",
 		"figlet": "^1.5.0",
 		"node-fetch": "^2.6.1",
 		"path": "^0.12.7",
 		"prompts": "^2.4.1"
 	},
 	"devDependencies": {
+		"@types/clear": "^0.1.1",
+		"@types/figlet": "^1.5.0",
 		"@types/node": "^14.14.37",
 		"@types/node-fetch": "^2.5.10",
+		"@types/prompts": "^2.0.10",
 		"nodemon": "^2.0.7",
 		"ts-node": "^9.1.1"
 	}
