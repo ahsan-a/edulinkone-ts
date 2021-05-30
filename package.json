@@ -2,16 +2,14 @@
 	"name": "edulinkone-ts",
 	"version": "1.0.0",
 	"description": "An edulink-one CLI with typescript",
-	"main": "bin/main.js",
+	"main": "bin/index.js",
 	"bin": {
-		"edulink": "./bin/main.js"
+		"edulink": "./bin/index.js"
 	},
 	"scripts": {
-		"test": "ts-node ./src/main.ts",
 		"build": "tsc -p .",
-		"local": "npm run build && npm i -g && edulink",
-		"prod": "npm run build && node .",
-		"serve": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec ts-node ./src/main.ts"
+		"prod": "npm run build && npm i -g && edulink",
+		"test": "npm run build && node ."
 	},
 	"repository": {
 		"type": "git",
@@ -26,19 +24,18 @@
 	"dependencies": {
 		"chalk": "^4.1.0",
 		"figlet": "^1.5.0",
+		"hyperlinker": "^1.0.0",
 		"node-fetch": "^2.6.1",
 		"path": "^0.12.7",
 		"prompts": "^2.4.1",
+		"supports-hyperlinks": "^2.2.0",
 		"uuid": "^8.3.2"
 	},
 	"devDependencies": {
-		"@types/clear": "^0.1.1",
 		"@types/figlet": "^1.5.0",
 		"@types/node": "^14.14.37",
 		"@types/node-fetch": "^2.5.10",
 		"@types/prompts": "^2.0.10",
-		"@types/uuid": "^8.3.0",
-		"nodemon": "^2.0.7",
-		"ts-node": "^9.1.1"
+		"@types/uuid": "^8.3.0"
 	}
 }

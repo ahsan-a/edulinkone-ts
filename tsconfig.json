@@ -1,8 +1,8 @@
 {
     "compilerOptions": {
-      "target": "es5",
+      "target": "ESNext",
       "module": "commonjs",
-      "lib": ["es6", "es2015", "dom"],
+      "lib": ["es6", "dom"],
       "declaration": true,
       "outDir": "bin",
       "rootDir": "src",
