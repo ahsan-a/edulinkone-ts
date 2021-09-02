@@ -2,13 +2,13 @@
 	"name": "edulinkone-ts",
 	"version": "1.0.0",
 	"description": "An edulink-one CLI with typescript",
-	"main": "bin/index.js",
+	"main": "./bin/index.js",
 	"bin": {
-		"edulink": "./bin/index.js"
+		"edulink": "bin/index.js"
 	},
 	"scripts": {
 		"build": "tsc -p .",
-		"prod": "npm run build && npm i -g && edulink",
+		"prod": "npm run build && npm i -g",
 		"test": "npm run build && node ."
 	},
 	"repository": {
