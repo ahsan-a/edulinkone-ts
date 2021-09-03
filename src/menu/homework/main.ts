@@ -4,7 +4,6 @@ import prompts from 'prompts';
 import edulink from '../../edulink';
 import state from '../../state';
 import menu from '..';
-import functions from '../../functions';
 
 export default async function main() {
 	console.clear();

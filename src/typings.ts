@@ -1,13 +1,13 @@
-export interface attachmentType {
+export interface Attachment {
 	id: number;
 	filename: string;
 	filesize: number;
 	mime_type: string;
 	uploaded: boolean;
-	url?: string
+	url?: string;
 }
 
-export interface homeworkType {
+export interface Homework {
 	id: number;
 	activity: string;
 	subject: string;
@@ -28,10 +28,10 @@ export interface homeworkType {
 	available_text: string;
 	status: string;
 	icon: string;
-	attachments: attachmentType[];
+	attachments: Attachment[];
 }
 
-export interface homeworkDetailsType {
+export interface HomeworkDetails {
 	id: number;
 	activity: string;
 	description: string;
@@ -44,6 +44,6 @@ export interface homeworkDetailsType {
 	format: number;
 }
 
-export interface attachmentFetchType {
+export interface AttachmentFetch {
 	url: string;
 }

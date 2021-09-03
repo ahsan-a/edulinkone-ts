@@ -8,32 +8,25 @@ import functions from '../../functions';
 
 export default async function mainMenu() {
 	if (Object.keys(state.user).length < 1) {
-		const user = await edulink.getUser(
-			state.credentials.username,
-			state.credentials.password
-		);
+		const user = await edulink.getUser(state.credentials.username, state.credentials.password);
+
 		if (!user.success) {
 			console.log(chalk.redBright(user.error));
-			menu.login.credentials();
+			return menu.login.credentials();
 		} else {
 			state.user = user;
 		}
 	}
 
 	console.clear();
-	console.log(
-		chalk.cyan(
-			figlet.textSync(
-				`Welcome, ${functions.capitilise(state.user.user.forename)}!`
-			)
-		)
-	);
+	console.log(chalk.cyan(figlet.textSync(`Welcome, ${functions.capitilise(state.user.user.forename)}!`)));
 	const action = await prompts({
 		type: 'select',
 		name: 'value',
 		message: 'Welcome! What would you like to do?',
 		choices: [
 			{ title: 'View Homeworks', value: 2 },
+			{ title: 'View Timetable', value: 3 },
 			{ title: 'Sign Out', value: 1 },
 			{ title: 'Quit', value: 0 },
 		],
@@ -50,5 +43,7 @@ export default async function mainMenu() {
 		case 2:
 			menu.homework.main();
 			break;
+		case 3:
+			menu.timetable.main();
 	}
 }

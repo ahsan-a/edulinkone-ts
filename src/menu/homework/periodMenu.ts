@@ -5,36 +5,24 @@ import state from '../../state';
 import menu from '..';
 import functions from '../../functions';
 
-import type { homeworkType } from '../../typings';
+import type { Homework } from '../../typings';
 
 export default async function current(isCurrentHomework: boolean) {
 	console.clear();
 	const homeworkTimePeriod = isCurrentHomework ? 'current' : 'past';
-	console.log(
-		chalk.yellow(
-			figlet.textSync(`${functions.capitilise(homeworkTimePeriod)} Homework`)
-		)
-	);
+	console.log(chalk.yellow(figlet.textSync(`${functions.capitilise(homeworkTimePeriod)} Homework`)));
 
 	let homeworkChoices: prompts.Choice[] = [{ title: 'Go Back', value: 0 }];
 
 	if (isCurrentHomework) {
-		state.homework.current.sort(
-			(a: homeworkType, b: homeworkType) =>
-				new Date(a.due_date).getTime() - new Date(b.due_date).getTime()
-		);
+		state.homework.current.sort((a: Homework, b: Homework) => new Date(a.due_date).getTime() - new Date(b.due_date).getTime());
 	} else {
-		state.homework.past.sort(
-			(a: homeworkType, b: homeworkType) =>
-				new Date(b.due_date).getTime() - new Date(a.due_date).getTime()
-		);
+		state.homework.past.sort((a: Homework, b: Homework) => new Date(b.due_date).getTime() - new Date(a.due_date).getTime());
 	}
 
-	state.homework[homeworkTimePeriod].forEach((homework: homeworkType) => {
+	state.homework[homeworkTimePeriod].forEach((homework: Homework) => {
 		homeworkChoices.push({
-			title: `${homework.subject}: ${homework.activity} (${
-				homework.due_text
-			}) ${homework.completed ? '✅' : '❌'}`,
+			title: `${homework.subject}: ${homework.activity} (${homework.due_text}) ${homework.completed ? '✅' : '❌'}`,
 			value: homework,
 		});
 	});
