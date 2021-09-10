@@ -21,7 +21,10 @@ export default async function singleHomework(homework: Homework, isCurrentHomewo
 		attachments.push(attachment);
 	}
 
-	homeworkDetails.description = homeworkDetails.description.replace(/<br.?\/?>/gi, '\n\n').replace(/(<([^>]+)>)/gi, '');
+	homeworkDetails.description = homeworkDetails.description
+		.replace(/<br.?\/?>/gi, '\n\n')
+		.replace(/(<([^>]+)>)/gi, '')
+		.replace(/&\w+;/g, '\n');
 
 	console.log(chalk.blue(homework.activity));
 	console.log(`${homeworkDetails.description}\n`);
